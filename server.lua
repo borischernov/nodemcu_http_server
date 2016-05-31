@@ -81,7 +81,10 @@ function server(port, callback)
                 code, buf, content_type = callback(method, path, _GET, cip)
                 content_type = content_type or "text/html"
                 if code == 200 and content_type == "text/html" then
-                    buf = get_file("header.html") .. buf .. get_file("footer.html")
+                    local layout = get_file("layout.html")
+                    if layout ~= "" then
+                      buf = string.gsub(layout, "${content}", buf)
+                    end
                 end
             end
             if code == 200 then
