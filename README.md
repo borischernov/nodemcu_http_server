@@ -62,7 +62,7 @@ If a file named "layout.html" is found, then it is used as a layout for all HTML
 
 Layout should contain "${content}" string which is replaced by actual response.
 
-User callback function may use interpolate_string(string, table) and interpolate_file(filename, table) helper for variable expansion. The string or file contents (depending on the function used) is searched for strings like "${table_key}" which are replaced by respective values from the table.
+User callback function may use interpolate_string(string, table) and interpolate_file(filename, table) helper functions for variable expansion. The string or file contents (depending on the function used) is searched for strings like "${table_key}" which are replaced by respective values from the table.
 
 ## Redirects
 
