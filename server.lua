@@ -35,7 +35,9 @@ function guess_content_type(path)
 end
 
 function interpolate_string(str, table)
-    return (str:gsub('($%b{})', function(w) return table[w:sub(3, -2)] or w end))
+  str = string.gsub(str, '$(%b{})', function(w) return table[w:sub(2, -2)] or w end)
+  str = string.gsub(str, '$(%b[])(%b{})', function(w,v) return table[w:sub(2, -2)] and v:sub(2, -2) or '' end)
+  return str
 end
 
 function interpolate_file(filename, table)
