@@ -71,7 +71,7 @@ function server(port, callback)
             local _GET = {}
             if (vars ~= nil)then
                 vars = unescape(vars)
-                for k, v in string.gmatch(vars, "([^&]+)=([^&]+)&*") do
+                for k, v in string.gmatch(vars, "([^&]+)=([^&]*)&*") do
                     _GET[k] = v
                 end
             end
